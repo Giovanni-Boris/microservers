@@ -1,0 +1,43 @@
+<div class="body">
+  <div class="box-form">
+    <div class="left">
+      <div class="overlay">
+        <h1>Dashboard app</h1>
+        <p>
+          These app was created by using ANGULAR 17 and ASP .NET 
+        </p>
+        <span>
+          <p>login with social media</p>
+          <a href="#"
+            ><i class="fa fa-twitter" aria-hidden="true"></i> Login with
+            Twitter</a
+          >
+        </span>
+      </div>
+    </div>
+  
+    <div class="right">
+      <h5>Login</h5>
+      <div class="inputs">
+        <input type="text" placeholder="user name" [(ngModel)]="username"  required/>
+        <br />
+        <input type="password" placeholder="password" [(ngModel)]="password"  required/>
+      </div>
+  
+      <br /><br />
+  
+      <div class="remember-me--forget-password">
+        <label>
+          <input type="checkbox" name="item" checked />
+          <span class="text-checkbox">Remember me</span>
+        </label>
+        <p>forget password?</p>
+      </div>
+  
+      <br />
+      <button type="button" (click)="onSubmit()">Login</button>
+      <button routerLink="/auth/register">Register</button>
+    </div>
+  </div>
+  
+</div>

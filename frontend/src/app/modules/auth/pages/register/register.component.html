@@ -1,0 +1,79 @@
+<div class="body">
+  <div class="box-form">
+    <div class="left">
+      <div class="overlay">
+        <h1>Dashboard app</h1>
+        <p>These app was created by using ANGULAR 17 and ASP .NET</p>
+        <span>
+          <p>login with social media</p>
+          <a href="#"
+            ><i class="fa fa-twitter" aria-hidden="true"></i> Register</a
+          >
+        </span>
+      </div>
+    </div>
+
+    <div class="right">
+      <h5>Register</h5>
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <input type="text" placeholder="username" formControlName="Username" />
+        <br />
+        <div
+          *ngIf="registrationForm.get('Username')?.hasError('required')"
+          class="error-message"
+        >
+          Username is required
+        </div>
+        <input type="email" placeholder="Email" formControlName="Email" />
+        <br />
+        <div
+          *ngIf="registrationForm.get('Email')?.hasError('required')"
+          class="error-message"
+        >
+          Email is required
+        </div>
+        <div
+          *ngIf="registrationForm.get('Email')?.hasError('email')"
+          class="error-message"
+        >
+          Invalid email format
+        </div>
+
+        <input
+          type="password"
+          placeholder="password"
+          formControlName="Password"
+        />
+        <br />
+        <div
+          *ngIf="registrationForm.get('Password')?.hasError('required')"
+          class="error-message"
+        >
+          Password is required
+        </div>
+        <div class="error-message" *ngIf="registrationForm.get('Password')?.hasError('invalidPassword')">
+          Password must have at least 1 uppercase, 1 lowercase, 1 number, and be
+          at least 5 characters long.
+        </div>
+
+        <input
+          type="password"
+          placeholder="confirm password"
+          formControlName="ConfirmPassword"
+        />
+        <br />
+        <div
+          *ngIf="registrationForm.hasError('mismatch')"
+          class="error-message"
+        >
+          Passwords do not match
+        </div>
+
+        <button type="submit" [disabled]="registrationForm.invalid">
+          Register
+        </button>
+        <button type="button" routerLink="/auth/login">Login</button>
+      </form>
+    </div>
+  </div>
+</div>

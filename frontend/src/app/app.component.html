@@ -1,0 +1,10 @@
+@if (isLoggedIn$ | async ) {
+  <div [class]="(darkMode$ | async) ? 'app dark' : 'app'">
+    <div class="home">
+        <router-outlet></router-outlet>
+    </div>
+  </div> 
+}
+@else {
+  <router-outlet></router-outlet>
+}

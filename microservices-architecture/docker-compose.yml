@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+
+  postgres:
+    image: postgres:v1
+    container_name: postgres_db
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: 1234
+    volumes:
+      - ./scripts:/scripts
+    ports:
+      - "5432:5432"
+
